@@ -27,6 +27,7 @@ class MapView {
     this.waterTileId = getTileTypeId(config, "water");
     this.windTurbineSmallId = getTileTypeId(config, "windTurbineSmall");
     this.windTurbineBigId = getTileTypeId(config, "windTurbineBig");
+    this.nuclearPowerPlant = getTileTypeId(config, "nuclearPowerPlant");
     this.roadTextureKey = "roads";
     this.roadTexturePrefix = "road";
     this.basicTileRenderers = {};
@@ -303,6 +304,14 @@ class MapView {
         );
         this.renderRoadTile(x, y);
         break;
+      case this.nuclearPowerPlant:
+        this.wtAnimation.deleteFromArray(
+          x,
+          y,
+          this.wtAnimation.smallWindturbines
+        );
+        this.renderNuclearPowerTile(x, y);
+        break;
     }
   }
 
@@ -328,6 +337,13 @@ class MapView {
     const textureNumber = 1 + Math.round(this.randomizedTerrain[y][x] * 8);
     this.getTextureTile(x, y).texture =
       this.textures.water[`water-0${textureNumber}`];
+    this.getTextureTile(x, y).visible = true;
+  }
+
+  renderNuclearPowerTile(x, y) {
+    const textureNumber = 1 + Math.round(this.randomizedTerrain[y][x] * 4);
+    this.getTextureTile(x, y).texture =
+      this.textures.nuclear_power[`nuclear_power-0${textureNumber}`];
     this.getTextureTile(x, y).visible = true;
   }
 
