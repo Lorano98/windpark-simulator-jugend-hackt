@@ -1,57 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <meta charset="utf-8" /><head>
-    <link
-      rel="stylesheet"
-      href="vendor/roboto-condensed-v19-latin/robot-condensed-v19-latin.css"
-    />
-    <link
-      rel="stylesheet"
-      href="vendor/bootstrap-4.6.0/css/bootstrap.min.css"
-    />
-    <script src="vendor/jquery-3.5.1/jquery-3.5.1.slim.min.js"></script>
-    <script src="vendor/popper-1.16.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.6.0/js/bootstrap.min.js"></script>
-    <script src="vendor/pixijs-6.0.2/pixi.min.js"></script>
-    <title>Dashboard - Use The Wind</title>
-    <script
-      defer="defer"
-      src="assets/dashboard.c920952fba77bb89a384.js"
-    ></script>
-    <link href="assets/dashboard.2945b2841a6524719308.css" rel="stylesheet" />
-  </head>
-  <body class="dashboard" data-show-slide="1">
-    <div class="container-fluid h-100">
-      <div class="row h-100">
-        <div
-          id="col-1"
-          class="col h-100 justify-content-center overflow-auto"
-        ></div>
-        <script>
-          var up = false;
-          var lastPosition;
+<!doctype html><html><meta charset="utf-8"/><head><link rel="stylesheet" href="vendor/roboto-condensed-v19-latin/robot-condensed-v19-latin.css"/><link rel="stylesheet" href="vendor/bootstrap-4.6.0/css/bootstrap.min.css"/><script src="vendor/jquery-3.5.1/jquery-3.5.1.slim.min.js"></script><script src="vendor/popper-1.16.1/popper.min.js"></script><script src="vendor/bootstrap-4.6.0/js/bootstrap.min.js"></script><script src="vendor/pixijs-6.0.2/pixi.min.js"></script><title>Dashboard - Use The Wind</title><script defer="defer" src="assets/dashboard.a7833ffa8ab7b2a523f4.js"></script><link href="assets/dashboard.61693976f6c110918f00.css" rel="stylesheet"></head><script>var up = false;
+    var lastPosition;
 
-          var interval = setInterval(function () {
-            var $container = $("#col-1");
-            var position = $container.scrollTop();
-            var height = $container[0].scrollHeight;
+    var interval = setInterval(function () {
+      var $container = $("#autoScroll");
+      var position = $container.scrollTop();
+      var height = $container[0].scrollHeight;
 
-            // If we haven't moved, switch direction
-            if (position === lastPosition) up = !up;
-            lastPosition = position;
+      // If we haven't moved, switch direction
+      if (position === lastPosition) up = !up;
+      lastPosition = position;
 
-            if (up) {
-              // Going up
-              $container.scrollTop(position - 10);
-            } else {
-              // Going down
-              $container.scrollTop(position + 10);
-            }
-          }, 100);
-        </script>
-        <div id="col-2" class="col h-100 justify-content-center"></div>
-        <div id="col-3" class="col h-100 justify-content-center"></div>
-      </div>
-    </div>
-  </body>
-</html>
+      if (up) {
+        // Going up
+        $container.scrollTop(position - 10);
+      } else {
+        // Going down
+        $container.scrollTop(position + 10);
+      }
+    }, 100);</script><body class="dashboard" data-show-slide="1"><div class="container-fluid h-100"><div class="row h-100"><div id="col-1" class="col h-100 justify-content-center"></div><div id="col-2" class="col h-100 justify-content-center"></div><div id="col-3" class="col h-100 justify-content-center"></div></div></div></body></html>
