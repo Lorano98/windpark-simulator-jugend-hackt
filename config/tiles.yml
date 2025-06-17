@@ -48,3 +48,8 @@ tileTypes:
     name: Border Wind Turbine Small
     color: "#000000"
     editorIcon: ""
+  8:
+    type: nuclearPowerPlant
+    name: Nuclear Power Plant
+    color: "#FFFF00"
+    editorIcon: ""
