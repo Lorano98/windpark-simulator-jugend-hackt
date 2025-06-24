@@ -50,6 +50,11 @@ citizenRequests:
     de: "*Vergrößere den Abstand zu S[Windenergieanlagen]!* Der Abstand zwischen Windenergieanlagen muss groß genug sein."
     group: distance
     urgent: true
+  nuclear-power-distance-residential:
+    en: "*Increase spacing to R[residential zones]!* There is not enough spacing around the nuclear power plant."
+    de: "*Vergrößere den Abstand zu R[Wohngebieten]!*  Der Abstand um das Atomkraftwerk herum ist nicht groß genug."
+    group: distance
+    urgent: true
 citizenIcons:
   regular:
     - static/openmoji/bw/man-beard.svg
