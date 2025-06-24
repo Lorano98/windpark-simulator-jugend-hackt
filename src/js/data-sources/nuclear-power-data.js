@@ -46,7 +46,7 @@ class NuclearPowerData extends DataSource {
    */
   getVariables() {
     return {
-      "distances-index-np": () => this.distancesIndex,
+      "distances-index": () => this.distancesIndex,
     };
   }
 

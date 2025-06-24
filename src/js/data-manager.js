@@ -28,11 +28,14 @@ class DataManager {
     dataSource.dataManager = this;
 
     Object.entries(dataSource.getVariables()).forEach(([id, callback]) => {
-      if (this.variables[id] !== undefined) {
-        throw new Error(
-          `Source ${dataSource.constructor.name} registering already registered variable ${id}.`
-        );
+      if (id != "distances-index") {
+        if (this.variables[id] !== undefined) {
+          throw new Error(
+            `Source ${dataSource.constructor.name} registering already registered variable ${id}.`
+          );
+        }
       }
+
       this.variables[id] = callback;
     });
   }
