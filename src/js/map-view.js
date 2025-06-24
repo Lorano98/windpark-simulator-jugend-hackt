@@ -341,7 +341,7 @@ class MapView {
   }
 
   renderNuclearPowerTile(x, y) {
-    const textureNumber = 1 + Math.round(this.randomizedTerrain[y][x] * 4);
+    const textureNumber = 1 + Math.round(this.randomizedTerrain[y][x] * 3);
     this.getTextureTile(x, y).texture =
       this.textures.nuclear_power[`nuclear_power-0${textureNumber}`];
     this.getTextureTile(x, y).visible = true;
