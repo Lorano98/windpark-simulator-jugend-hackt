@@ -11,7 +11,7 @@ class MapEditorPalette {
     this.$element.addClass("map-editor-palette");
 
     this.buttons = Object.entries(config.tileTypes)
-      .filter((id) => parseInt(id) <= 5) //filters so the Tile types (border) won't be added to the palette
+      .filter((id) => parseInt(id) <= 5 || parseInt(id) >= 8) //filters so the Tile types (border) won't be added to the palette
       .map(([id, typeCfg]) =>
         $("<button></button>")
           .attr({

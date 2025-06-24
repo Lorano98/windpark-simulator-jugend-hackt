@@ -19,6 +19,7 @@ const VariableRankListView = require("./index-list-view");
 //const NoiseData = require("./data-sources/noise-data");
 const GreenSpacesData = require("./data-sources/green-spaces-data");
 const WindTurbinesData = require("./data-sources/wind-turbines-data_WT");
+const NuclearPowerData = require("./data-sources/nuclear-power-data");
 const SlipstreamData = require("./data-sources/slipstream-data");
 //const TravelTimesData = require("./data-sources/travel-times-data");
 const ZoningData = require("./data-sources/zoning-data");
@@ -67,6 +68,7 @@ cfgLoader
     stats.registerSource(new ZoneBalanceData(city, config));
     stats.registerSource(new GreenSpacesData(city, config));
     stats.registerSource(new WindTurbinesData(city, config));
+    stats.registerSource(new NuclearPowerData(city, config));
     stats.registerSource(new SlipstreamData(city, config));
     stats.calculateAll(); // Calculation gets done here once, because the cities default state is no longer only empty cells, but park cells. Therefore the tile count must be calculated here too, default 0 is no longer correct
     city.map.events.on("update", () => {

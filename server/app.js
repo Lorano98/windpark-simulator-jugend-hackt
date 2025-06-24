@@ -12,6 +12,7 @@ const ZoneBalanceData = require("../src/js/data-sources/zone-balance-data");
 //const NoiseData = require('../src/js/data-sources/noise-data');
 const GreenSpacesData = require("../src/js/data-sources/green-spaces-data");
 const WindTurbinesData = require("../src/js/data-sources/wind-turbines-data_WT");
+const NuclearPowerData = require("../src/js/data-sources/nuclear-power-data");
 const SlipstreamData = require("../src/js/data-sources/slipstream-data");
 //const TravelTimesData = require("../src/js/data-sources/travel-times-data");
 //const TrafficData = require("../src/js/data-sources/traffic-data");
@@ -40,6 +41,7 @@ function initApp(config) {
   //stats.registerSource(new NoiseData(city, config));
   stats.registerSource(new GreenSpacesData(city, config));
   stats.registerSource(new WindTurbinesData(city, config));
+  stats.registerSource(new NuclearPowerData(city, config));
   stats.registerSource(new SlipstreamData(city, config));
   //stats.registerSource(new TravelTimesData(city, config));
   //stats.registerSource(new TrafficData(city, config));
