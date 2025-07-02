@@ -104,6 +104,9 @@ fetch(`${process.env.SERVER_HTTP_URI}/config`, { cache: "no-store" })
       variableRankListView.setValues(variables);
       //Save energy losses for the tile counter view
       counterView.setEnergyLosses(variables["energy-losses"]);
+      counterView.setNuclearPowerPlantCount(
+        variables["zones-nuclearPowerPlant-count"]
+      );
       counterView.updateCounters(stats, wind);
     });
 

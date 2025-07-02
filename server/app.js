@@ -120,6 +120,9 @@ function initApp(config) {
           distances: stats.get("distances-index"),
           "energy-losses": stats.get("energy-losses"),
           "life-span": stats.get("life-span-index"),
+          "zones-nuclearPowerPlant-count": stats.get(
+            "zones-nuclearPowerPlant-count"
+          ),
           //pollution: stats.get('pollution-index'),
           //noise: stats.get('noise-index'),
           //"travel-times": stats.get("travel-times-index"),

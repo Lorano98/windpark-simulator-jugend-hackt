@@ -9,6 +9,7 @@ class TileCounterViewDashboard {
     this.counters = {};
     this.config = config;
     this.energyLosses = [];
+    this.powerPlantCount = 0;
     this.speed_km_h = 0;
     this.speed_m_s = 0;
     this.$element = $("<div></div>").addClass("tile-counter");
@@ -45,7 +46,7 @@ class TileCounterViewDashboard {
               );
             }
           });
-          energy += this.stats.get("zones-nuclearPowerPlant-count") * 1400000;
+          energy += this.powerPlantCount * 1400000;
           return Math.round(energy) + " kW";
         },
       },
@@ -189,6 +190,10 @@ class TileCounterViewDashboard {
    */
   setEnergyLosses(energyLosses) {
     this.energyLosses = energyLosses;
+  }
+
+  setNuclearPowerPlantCount(count) {
+    this.powerPlantCount = count;
   }
 }
 
