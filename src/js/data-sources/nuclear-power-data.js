@@ -14,7 +14,7 @@ class NuclearPowerData extends DataSource {
     // and other data types (water, road, residential area, wind turbines small and big).)
     // I don't think the lines above are correct, cause the array just saves positive distance values,
     // like just the distances from all residential tiles to one Wind Turbine
-    //this.proximitiesWaterRoad = [];
+    this.proximitiesWater = [];
     this.proximitiesResidential = [];
     //this.proximitiesWindTurbines = [];
 
@@ -29,9 +29,13 @@ class NuclearPowerData extends DataSource {
         "nuclearPowerPlant-distance-residentials"
       ] || 10;
 
+    this.waterDist =
+      this.config.goals["distances"]["nuclearPowerPlant-distance-water"] || 1;
+
     // The following values are counters, that are initially set to 0
     this.numResidentialsTooClose = 0;
     this.numResidentialsTooCloseWithGoodwill = 0;
+    this.numWaterClose = 0;
 
     this.amountOfNuclearPowerPlants = 0;
 
@@ -98,10 +102,7 @@ class NuclearPowerData extends DataSource {
     const nuclearPowerPlantId = getTileTypeId(this.config, "nuclearPowerPlant");
 
     // The following lines will build the distances arrays:
-    const distancesWaterRoad = allDistancesToTileType(this.city.map, [
-      waterTileId,
-      roadTileId,
-    ]);
+    const distancesWater = allDistancesToTileType(this.city.map, [waterTileId]);
 
     const distancesResidential = allDistancesToTileType(this.city.map, [
       residentialId,
@@ -122,6 +123,18 @@ class NuclearPowerData extends DataSource {
         ]);
       }
     });
+
+    // Distance between nucelar power and water
+    this.proximitiesWater = [];
+    this.city.map.allCells().forEach(([x, y, tile]) => {
+      if (tile === nuclearPowerPlantId) {
+        // this.proximitiesResidential will look like this [distance, [x, y]]
+        this.proximitiesWater.push([
+          distancesWater[y][x], // saves the distances from all residential tiles to one nuclear power plant
+          [x, y], // saves the locations of the residential tiles
+        ]);
+      }
+    });
   }
 
   // Just a call for the calculation done by other functions.
@@ -134,6 +147,13 @@ class NuclearPowerData extends DataSource {
   calculateIndex() {
     this.numResidentialsTooCloseWithGoodwill = 0;
     this.numResidentialsTooClose = 0;
+    // No nuclear power plant is placed
+    if (this.proximitiesWater.length == 0) {
+      this.numWaterClose = 1;
+    } else {
+      this.numWaterClose = 0;
+    }
+
     Array2D.setAll(this.locationsGoalsError, 0);
 
     this.proximitiesResidential.forEach((distanceAndLocation) => {
@@ -162,6 +182,17 @@ class NuclearPowerData extends DataSource {
       }
     });
 
+    this.proximitiesWater.forEach((distanceAndLocation) => {
+      let distance = distanceAndLocation[0]; //saves the surrent distance
+      let x = distanceAndLocation[1][0];
+      let y = distanceAndLocation[1][1];
+
+      if (distance == this.waterDist) {
+        // distance == 1
+        this.numWaterClose = 1;
+      }
+    });
+
     // 5 := best; 3 := neutral; 1 := worst; 0 := neutral
     this.distancesIndex =
       5 -
@@ -177,6 +208,7 @@ class NuclearPowerData extends DataSource {
    */
   getGoals() {
     return [
+      /*
       {
         id: "wind-turbine-distance-road-water-low",
         category: "distance",
@@ -197,6 +229,13 @@ class NuclearPowerData extends DataSource {
         priority: 1,
         condition: this.numWindTurbinesTooClose == false,
         progress: this.goalProgress(this.numWindTurbinesTooClose, false),
+      },*/
+      {
+        id: "nuclear-power-plant-no-water",
+        category: "distance",
+        priority: 1,
+        condition: this.numWaterClose >= 1,
+        progress: this.goalProgress(this.numWaterClose, 1),
       },
     ];
   }

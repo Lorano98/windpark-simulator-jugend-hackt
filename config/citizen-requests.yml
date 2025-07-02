@@ -55,6 +55,11 @@ citizenRequests:
     de: "*Vergrößere den Abstand zu R[Wohngebieten]!*  Der Abstand um das Atomkraftwerk herum ist nicht groß genug."
     group: distance
     urgent: true
+  nuclear-power-plant-no-water:
+    en: "*There is no cooling pond!* There must be a water tile next to a nuclear power plant."
+    de: "*Es fehlt ein Kühlbecken!*  Im Umkreis des Atomkraftwerkes muss ein Wasserbereich sein."
+    group: distance
+    urgent: true
 citizenIcons:
   regular:
     - static/openmoji/bw/man-beard.svg
