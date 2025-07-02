@@ -53,3 +53,13 @@ tileTypes:
     name: Nuclear Power Plant
     color: "#FFFF00"
     editorIcon: ""
+  9:
+    type: endlager
+    name: Endlager
+    color: "#b8b8b8"
+    editorIcon: ""
+  10:
+    type: verstärker
+    name: Verstärker
+    color: "#FFC0CB"
+    editorIcon: ""
