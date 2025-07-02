@@ -45,7 +45,7 @@ class TileCounterViewDashboard {
               );
             }
           });
-
+          energy += this.stats.get("zones-nuclearPowerPlant-count") * 1400000;
           return Math.round(energy) + " kW";
         },
       },

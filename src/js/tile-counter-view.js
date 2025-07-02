@@ -49,6 +49,8 @@ class TileCounterView {
             }
           });
 
+          energy += this.stats.get("zones-nuclearPowerPlant-count") * 1400000;
+
           return Math.round(energy);
           /*
           return Math.round(
