@@ -28,6 +28,8 @@ class MapView {
     this.windTurbineSmallId = getTileTypeId(config, "windTurbineSmall");
     this.windTurbineBigId = getTileTypeId(config, "windTurbineBig");
     this.nuclearPowerPlant = getTileTypeId(config, "nuclearPowerPlant");
+    this.verstaerker = getTileTypeId(config, "verstaerker");
+    this.endlager = getTileTypeId(config, "endlager");
     this.roadTextureKey = "roads";
     this.roadTexturePrefix = "road";
     this.basicTileRenderers = {};
@@ -312,6 +314,22 @@ class MapView {
         );
         this.renderNuclearPowerTile(x, y);
         break;
+      case this.endlager:
+        this.wtAnimation.deleteFromArray(
+          x,
+          y,
+          this.wtAnimation.smallWindturbines
+        );
+        this.renderEndlager(x, y);
+        break;
+      case this.verstaerker:
+        this.wtAnimation.deleteFromArray(
+          x,
+          y,
+          this.wtAnimation.smallWindturbines
+        );
+        this.renderVerstaerker(x, y);
+        break;
     }
   }
 
@@ -344,6 +362,20 @@ class MapView {
     const textureNumber = 1 + Math.round(this.randomizedTerrain[y][x] * 3);
     this.getTextureTile(x, y).texture =
       this.textures.nuclear_power[`nuclear_power-0${textureNumber}`];
+    this.getTextureTile(x, y).visible = true;
+  }
+
+  renderEndlager(x, y) {
+    const textureNumber = 1 + Math.round(this.randomizedTerrain[y][x] * 3);
+    this.getTextureTile(x, y).texture =
+      this.textures.endlager[`endlager-0${textureNumber}`];
+    this.getTextureTile(x, y).visible = true;
+  }
+
+  renderVerstaerker(x, y) {
+    const textureNumber = 1 + Math.round(this.randomizedTerrain[y][x] * 3);
+    this.getTextureTile(x, y).texture =
+      this.textures.verstaerker[`verstaerker-0${textureNumber}`];
     this.getTextureTile(x, y).visible = true;
   }
 

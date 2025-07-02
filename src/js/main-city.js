@@ -66,6 +66,8 @@ fetch(`${process.env.SERVER_HTTP_URI}/config`, { cache: "no-store" })
     textureLoader.addSpritesheet("marked_small_wt");
     textureLoader.addSpritesheet("city");
     textureLoader.addSpritesheet("nuclear_power");
+    textureLoader.addSpritesheet("endlager");
+    textureLoader.addSpritesheet("verstaerker");
     textureLoader.addFolder("cars", CarSpawner.allTextureIds(config));
 
     const promiseAnimatedtextures = animatedTextureLoader.loadAnimatedTextures(

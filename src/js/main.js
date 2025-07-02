@@ -98,6 +98,8 @@ cfgLoader
     textureLoader.addSpritesheet("marked_small_wt");
     textureLoader.addSpritesheet("city");
     textureLoader.addSpritesheet("nuclear_power");
+    textureLoader.addSpritesheet("endlager");
+    textureLoader.addSpritesheet("verstaerker");
     textureLoader.addFolder("cars", CarSpawner.allTextureIds(config));
     // textureLoader.addGIF("animatedWT", app);
 

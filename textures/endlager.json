@@ -1,0 +1,41 @@
+{
+  "frames": {
+    "endlager-01": {
+      "frame": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 }
+    },
+    "endlager-02": {
+      "frame": { "x": 72, "y": 0, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 }
+    },
+    "endlager-03": {
+      "frame": { "x": 0, "y": 72, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 }
+    },
+    "endlager-04": {
+      "frame": { "x": 72, "y": 72, "w": 72, "h": 72 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 72, "h": 72 },
+      "sourceSize": { "w": 72, "h": 72 }
+    }
+  },
+
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.1",
+    "image": "endlager.png",
+    "format": "RGBA8888",
+    "size": { "w": 144, "h": 144 },
+    "scale": "1"
+  }
+}
